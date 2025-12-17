@@ -2,7 +2,7 @@
 
 A production-ready ecommerce REST API built with Django and Django REST Framework (DRF). This project demonstrates core backend development concepts including user authentication with JWT, product management, shopping carts, and orders with role-based access control.
 
-## ✨ Features
+## Features
 
 ### Core Functionality
 - **User Authentication**: JWT-based authentication with registration and login endpoints
@@ -20,7 +20,7 @@ A production-ready ecommerce REST API built with Django and Django REST Framewor
 - **Unit Tests**: Comprehensive test suite covering auth, products, cart, and orders
 - **Admin Interface**: Fully configured Django admin with search and filters
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - Python 3.10+
@@ -72,7 +72,7 @@ python manage.py runserver
 
 The API will be available at `http://127.0.0.1:8000/api/v1/`
 
-## 📋 Environment Variables
+##  Environment Variables
 
 Create a `.env` file in the project root with the following variables:
 
@@ -93,7 +93,7 @@ REFRESH_TOKEN_LIFETIME=1440
 EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 ```
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### Authentication
 | Method | Endpoint | Description |
@@ -134,7 +134,7 @@ EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
 | GET | `/api/v1/orders/{id}/` | Get order details |
 | PUT | `/api/v1/orders/{id}/` | Update order (e.g., status) |
 
-## 🔐 Authentication
+##  Authentication
 
 All endpoints except `/api/v1/auth/register/`, `/api/v1/products/` (GET), and `/api/v1/categories/` (GET) require authentication.
 
@@ -175,7 +175,7 @@ curl -H "Authorization: Bearer <ACCESS_TOKEN>" \
   http://127.0.0.1:8000/api/v1/cart/
 ```
 
-## 📋 Example Workflow
+##  Example Workflow
 
 ### 1. View Products
 ```bash
@@ -210,7 +210,7 @@ curl -H "Authorization: Bearer <ACCESS_TOKEN>" \
   http://127.0.0.1:8000/api/v1/orders/
 ```
 
-## 🧪 Running Tests
+##  Running Tests
 
 Run all tests:
 ```bash
@@ -230,7 +230,7 @@ coverage run --source='.' manage.py test
 coverage report
 ```
 
-## 👨‍💼 Admin Dashboard
+##  Admin Dashboard
 
 Access the Django admin at `http://127.0.0.1:8000/admin/`
 
@@ -240,7 +240,7 @@ Login with your superuser credentials. You can:
 - Search and filter data
 - Create/modify users
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 ecommerce_api_portfolio/
@@ -265,7 +265,7 @@ ecommerce_api_portfolio/
 └── venv/                      # Virtual environment
 ```
 
-## 🛠 Technologies Used
+##  Technologies Used
 
 - **Django 5.2** - Web framework
 - **Django REST Framework** - REST API toolkit
@@ -274,7 +274,7 @@ ecommerce_api_portfolio/
 - **python-decouple** - Environment configuration
 - **SQLite** - Development database
 
-## 📝 API Response Format
+##  API Response Format
 
 ### Success Response (200)
 ```json
@@ -298,7 +298,7 @@ ecommerce_api_portfolio/
 }
 ```
 
-## 🔒 Security Notes
+##  Security Notes
 
 - **Never commit `.env` files** with real secrets to version control
 - Use strong `SECRET_KEY` in production (generate with Django `get_random_secret_key()`)
@@ -308,7 +308,7 @@ ecommerce_api_portfolio/
 - Add rate limiting for API endpoints
 - Use database migrations for schema changes
 
-## 🚀 Deployment
+##  Deployment
 
 For production deployment:
 
@@ -321,19 +321,19 @@ For production deployment:
 7. Configure Nginx as reverse proxy
 8. Set up SSL certificate
 
-## 📚 Additional Resources
+##  Additional Resources
 
 - [Django Docs](https://docs.djangoproject.com/)
 - [DRF Docs](https://www.django-rest-framework.org/)
 - [JWT Docs](https://django-rest-framework-simplejwt.readthedocs.io/)
 
-## 📄 License
+##  License
 
 This project is open source and available under the MIT License.
 
 ## 👤 Author
 
-Created as a portfolio project for backend development.
+Created as a portfolio project for backend development. To contact the developer, send a message to oladapo.oluseye@gmail.com
 
 ---
 
