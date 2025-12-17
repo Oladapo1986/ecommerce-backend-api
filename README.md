@@ -1,4 +1,4 @@
-# Ecommerce API Portfolio
+# Ecommerce API
 
 A production-ready ecommerce REST API built with Django and Django REST Framework (DRF). This project demonstrates core backend development concepts including user authentication with JWT, product management, shopping carts, and orders with role-based access control.
 
