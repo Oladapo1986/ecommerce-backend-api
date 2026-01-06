@@ -16,20 +16,14 @@ from decouple import config, Csv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-h08@$)rpcg0)m)ig-4fljaw5_tqvgl!_)3_79w67&+tg@%on^*')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
 
 
-# Application definition
+# Im defining the applications for installation:
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,12 +32,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    # --- ADD YOUR NEW APPS HERE ---
-    'rest_framework',  # 1. Django REST Framework
+
+    # The below codes shows the addition of my app
+    'rest_framework',  # 1. Django REST Framework is called
     'rest_framework.authtoken',
     'django_filters',  # Add django-filter for filtering
-    'core_api',        # 2. Your new application
+    'core_api',        # 2. The new application
 ]
 
 MIDDLEWARE = [
@@ -76,7 +70,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ecommerce_project.wsgi.application'
 
 
-# Database
+# Database will be important from django official site
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
@@ -118,7 +112,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Coding in static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
@@ -127,7 +121,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# Django REST Framework Configuration
+# Django REST Framework Configuration setting
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -148,7 +142,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 }
 
-# Simple JWT settings (adjust lifetimes as needed)
+# Simple JWT settings (this is adjustable as needed)
 from datetime import timedelta
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=config('ACCESS_TOKEN_LIFETIME', default=60, cast=int)),
