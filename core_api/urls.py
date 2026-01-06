@@ -18,18 +18,18 @@ from .views import (
 from .models import Order
 from .serializers import OrderSerializer
 
-# Create an instance of the router
+# I first create an instance of the router
 router = DefaultRouter()
 
-# Register the ProductViewSet:
-# The first argument 'products' is what creates the '/products/' path
+# The I register the ProductViewSet:
+# By passing the first argument 'products' it creates the '/products/' path
 router.register(r'products', ProductViewSet)
 
-# Register the CategoryViewSet:
+# The CategoryViewSet is registerd:
 # The first argument 'categories' is what creates the '/categories/' path
 router.register(r'categories', CategoryViewSet)
 
-# Define custom URL patterns for cart operations
+# Here, we need to define custom URL patterns for cart operations such as cart URLs, etc
 urlpatterns = [
     # Cart URLs
     path('cart/', CartRetrieveView.as_view(), name='cart-retrieve'),
