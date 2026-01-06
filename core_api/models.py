@@ -30,10 +30,10 @@ class Product(models.Model):
         return self.name
     
     # -----------------
-# Cart Model: One-to-one with User
+# Cart Model: This indicates One-to-one with User
 # -----------------
 class Cart(models.Model):
-    # If the user is deleted, the cart should also be deleted
+    # Here, the code will trigger deletion of the cart if the user is deleted
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -41,7 +41,7 @@ class Cart(models.Model):
         return f"Cart of {self.user.username}"
 
 # -----------------
-# CartItem Model: Stores what and how much is in the cart
+# CartItem Model: This model helps to store what and how much is in the cart
 # -----------------
 class CartItem(models.Model):
     # If the cart is deleted, the item is deleted
@@ -53,7 +53,7 @@ class CartItem(models.Model):
     def __str__(self):
         return f"{self.quantity} x {self.product.name}"
     
-    # Add a property to calculate item total price
+    # Here, I'm adding a property to calculate item total price
     @property
     def total_price(self):
         return self.quantity * self.product.price
@@ -61,7 +61,7 @@ class CartItem(models.Model):
     # core_api/models.py (ensure these models are present)
 
 # -----------------
-# Order Model
+# The code below shows the order Model
 # -----------------
 class Order(models.Model):
     STATUS_CHOICES = (
@@ -91,7 +91,7 @@ class OrderItem(models.Model):
     # Link to Product, but set to null if product is deleted (don't delete the order)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     quantity = models.PositiveIntegerField(default=1)
-    # CRITICAL: Store the price at the time of purchase
+    # The is CRITICAL: Store the price at the time of purchase
     price_at_purchase = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
