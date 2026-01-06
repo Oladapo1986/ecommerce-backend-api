@@ -20,7 +20,7 @@ class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.AllowAny]
 
 class ProductViewSet(viewsets.ModelViewSet):
-    # What data should this view work with? All products.
+    # What data should this view work with? It should work with All products.
     queryset = Product.objects.all().order_by('name')
     # What serializer should be used to format the data?
     serializer_class = ProductSerializer
