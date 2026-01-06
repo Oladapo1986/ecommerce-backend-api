@@ -24,9 +24,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all().order_by('name')
     # What serializer should be used to format the data?
     serializer_class = ProductSerializer
-    # Later, we will add permissions here to restrict POST/PUT/DELETE
 
-# ADD THIS LINE:
     # Allows GET (read) for anyone, but requires staff status for POST/PUT/DELETE (write)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     
@@ -36,10 +34,6 @@ class ProductViewSet(viewsets.ModelViewSet):
     ordering_fields = ['name', 'price', 'created_at']
     ordering = ['name']
     
-    # ----------------------------------------------------
-# 1. Cart Retrieve View (GET)
-# ----------------------------------------------------
-
 class CartRetrieveView(generics.RetrieveAPIView):
     serializer_class = CartSerializer
     # Only authenticated users can view their cart
@@ -51,10 +45,6 @@ class CartRetrieveView(generics.RetrieveAPIView):
         # Get the cart if it exists, otherwise create it
         cart, created = Cart.objects.get_or_create(user=user)
         return cart
-
-# ----------------------------------------------------
-# 2. Add/Update Item View (POST)
-# ----------------------------------------------------
 
 class CartAddItemView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -100,17 +90,13 @@ class CartRemoveItemView(APIView):
     def post(self, request, *args, **kwargs):
         # We expect product_id and optional quantity from the request body
         product_id = request.data.get('product_id')
-        quantity = request.data.get('quantity')  # If not provided, remove entire item
+        quantity = request.data.get('quantity')
 
-        # 1. Get the authenticated user's cart
         cart = get_object_or_404(Cart, user=request.user)
         
-        # 2. Check if the item exists in the cart
         cart_item = get_object_or_404(CartItem, cart=cart, product_id=product_id)
 
-        # 3. Remove or reduce quantity
         if quantity is None:
-            # Remove entire item
             cart_item.delete()
         else:
             try:
