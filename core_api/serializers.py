@@ -30,7 +30,7 @@ class CartItemSerializer(serializers.ModelSerializer):
         fields = ['id', 'product', 'quantity']
 
 class CartSerializer(serializers.ModelSerializer):
-    # Nest the CartItems inside the Cart
+    # I am Nesting the CartItems inside the Cart
     cartitem_set = CartItemSerializer(many=True, read_only=True)
 
     class Meta:
@@ -38,7 +38,7 @@ class CartSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'cartitem_set', 'created_at']
 
 class OrderItemSerializer(serializers.ModelSerializer):
-    # Read-only field to show the product name
+    # The Read-only field aid to show the product name
     product_name = serializers.ReadOnlyField(source='product.name') 
 
     class Meta:
