@@ -1,3 +1,3 @@
 from django.test import TestCase
 
-# Create your tests here.
+# The code will be generated as the backend is being updated
