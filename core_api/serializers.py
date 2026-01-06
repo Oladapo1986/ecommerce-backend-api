@@ -46,7 +46,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
         fields = ['product_name', 'quantity', 'price_at_purchase']
 
 class OrderSerializer(serializers.ModelSerializer):
-    # Nest the OrderItems inside the Order
+    # Nest the OrderItems inside the Orde r
     # If you have set a custom related_name in the OrderItem model's ForeignKey to Order, update 'orderitem_set' below.
     # For example, if related_name='items', use source='items' instead.
     items = OrderItemSerializer(many=True, read_only=True, source='orderitem_set')
